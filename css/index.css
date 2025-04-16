@@ -93,3 +93,13 @@ body {
     color: #555;
     margin-bottom: 1rem;
 }
+
+/* Footer */
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
