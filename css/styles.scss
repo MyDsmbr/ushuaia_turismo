@@ -1,0 +1,169 @@
+$bg-presentacion: linear-gradient(to left, #051937, #002265, #002894, #0027c1, #2e12eb);
+$bg-presentacion1:  linear-gradient(to left, #282a2c, #13333b, #003c3b, #004429, #184802);
+
+$gradiente-primario : linear-gradient(to right top, #28292c, #16313e, #003c41, #00442e, #184802);
+$gradiente-secundario: linear-gradient(to left, #1a1548, #380a3d, #48012d, #4f021d, #4f0f0c);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  // Header
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.75rem;
+    color: #007bff !important;
+  
+    img {
+      margin-right: 10px;
+    }
+  }
+  
+  .navbar-nav {
+    .nav-link {
+      color: #333 !important;
+      padding: 0.75rem 1rem;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: #007bff !important;
+      }
+  
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+  @each $bg in $bg-presentacion, $bg-presentacion1 {
+    .presentacion {
+        background-image: $bg
+    }
+  }
+
+  // Presentación
+  .presentacion {
+    // background-image: url('../img/ushuaia_paisaje.jpg');
+    // background-size: cover;
+    // background-position: center;    
+    background-size:  400% 400%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(to left, #152748, #12244a, #11214c, #111e4d, #131a4e);
+        animation : slow-rotate 60s linear infinite;
+        opacity: .5;
+        z-index: -1;
+    }
+
+    color: white !important;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+  
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+  }
+  %card-base {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+  }
+  // Cards
+  .card {
+    @extend %card-base;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  
+    &-img-top {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      height: 200px;
+      object-fit: cover;
+    }
+  
+    &-body {
+      padding: 1.5rem;
+    }
+  
+    &-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+  
+    &-text {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  // Footer
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+  footer {
+    p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+  }
+  
+  //Botones
+
+  @mixin boton($color, $bg) {
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    background-image: $bg;
+    color: $color;
+    transition: background-image 0.3s ease;
+  }
+
+
+  .btn-primario {
+    @include boton(white, $gradiente-primario);
+  }
+  
+  .btn-secundario {
+    @include boton(white, $gradiente-secundario);
+  }
+
+
+  @keyframes slow-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
